@@ -112,10 +112,8 @@ data = [
 
 df = pd.DataFrame(data)
 
-with cnx.connect() as session:
-
-    # Write DataFrame to a NEW table
-    success, nchunks, nrows, output = write_pandas(
+# Write DataFrame to a NEW table
+success, nchunks, nrows, output = write_pandas(
         conn=session,
         df=df,
         table_name="FRUITS_TABLE",
