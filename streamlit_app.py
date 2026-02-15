@@ -1,8 +1,9 @@
 # Import python packages
 import streamlit as st
 #from snowflake.snowpark.context import get_active_session
-from snowflake.snowpark.functions import col
+from snowflake.snowpark.functions import col, write_pandas
 import requests
+import pandas as pd
 
 
 # Write directly to the app
@@ -53,7 +54,7 @@ if(ingredient_list):
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
 
 
-import pandas as pd
+
 
 data = [
     {"id":1,"name":"Apple","family":"Rosaceae","genus":"Malus","order":"Rosales",
