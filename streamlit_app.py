@@ -116,6 +116,7 @@ df = pd.DataFrame(data)
 
 # Write DataFrame to a NEW table
 success, nchunks, nrows, output = write_pandas(
+        conn = session,
         df=df,
         table_name="FRUITS_TABLE",
         auto_create_table=True,     # <-- creates table automatically
