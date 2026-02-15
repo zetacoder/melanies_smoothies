@@ -114,14 +114,16 @@ data = [
 
 df = pd.DataFrame(data)
 
-# Write DataFrame to a NEW table
+cnx = st.connection("snowflake")
+session = cnx.connect()   # <-- this is the correct one
+
 success, nchunks, nrows, output = write_pandas(
-        conn = session,
-        df=df,
-        table_name="FRUITS_TABLE",
-        auto_create_table=True,     # <-- creates table automatically
-        overwrite=True              # <-- optional: replace if exists
-    )
+    conn=session,
+    df=df,
+    table_name="FRUITS_TABLE",
+    auto_create_table=True,
+    overwrite=True
+)
 
 st.write("Upload complete:", success)
 st.write("Rows written:", nrows)
