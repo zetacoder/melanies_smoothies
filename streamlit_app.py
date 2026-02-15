@@ -115,7 +115,7 @@ data = [
 df = pd.DataFrame(data)
 
 cnx = st.connection("snowflake")
-session = cnx.connect()   # <-- this is the correct one
+session = cnx._instance.connect()   # <-- this is the correct one
 
 success, nchunks, nrows, output = write_pandas(
     conn=session,
