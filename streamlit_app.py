@@ -112,7 +112,7 @@ data = [
 
 df = pd.DataFrame(data)
 
-with conn.connect() as session:
+with cnx.connect() as session:
 
     # Write DataFrame to a NEW table
     success, nchunks, nrows, output = write_pandas(
