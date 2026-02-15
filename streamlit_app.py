@@ -114,11 +114,11 @@ data = [
 
 df = pd.DataFrame(data)
 
-cnx = st.connection("snowflake")
-session = cnx._instance.connect()   # <-- this is the correct one
+cn = st.connection("snowflake")
+conn = cn._instance.connect()   # <-- correct connector session
 
 success, nchunks, nrows, output = write_pandas(
-    conn=session,
+    conn=conn,
     df=df,
     table_name="FRUITS_TABLE",
     auto_create_table=True,
